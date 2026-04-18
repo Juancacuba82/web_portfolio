@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JuanCaPixel - Portfolio</title>
+    <!-- SEO meta tags -->
+    <meta name="description" content="Portfolio de JuanCaPixel. Desarrollador Web, Diseñador y Creador.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Cursor decorativo (opcional) -->
+    <div class="cursor-glow"></div>
+
+    <!-- Navegación -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">JuanCa<span>Pixel</span></a>
+            <ul class="nav-links">
+                <li><a href="#home" data-i18n="nav_home">Inicio</a></li>
+                <li><a href="#about" data-i18n="nav_about">Sobre Mí</a></li>
+                <li><a href="#showcase" data-i18n="nav_projects">Proyectos</a></li>
+                <li><a href="#contact" class="btn-primary-outline" data-i18n="nav_contact">Contacto</a></li>
+            </ul>
+            <div class="nav-actions-mobile">
+                <button id="lang-toggle" class="lang-btn">EN</button>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content hidden-fade">
+            <div class="profile-img-container">
+                <img src="foto.jpg" alt="Foto de JuanCa" class="profile-img">
+            </div>
+            <h2 class="subtitle" data-i18n="hero_hello">Hola, soy</h2>
+            <h1 class="title">JuanCa<br><span class="gradient-text">Pixel</span></h1>
+            <p class="description" data-i18n="hero_desc">
+                Construyendo interfaces elegantes, rápidas y dinámicas. Fusiono código y diseño para darle vida a la
+                web.
+            </p>
+            <div class="hero-actions">
+                <a href="#bottom" class="btn-primary" data-i18n="hero_cta">Hablemos</a>
+            </div>
+        </div>
+        <!-- Elementos 3D / Gráficos flotantes -->
+        <div class="hero-graphic">
+            <div class="orb orbit-1"></div>
+            <div class="orb orbit-2"></div>
+            <div class="glass-card decor-card hidden-slide">
+                <div class="dots-row"><span></span><span></span><span></span></div>
+                <p>/* Hello World! */</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-title hidden-fade">
+            <h2 data-i18n="about_title">Sobre <span>Mí</span></h2>
+        </div>
+        <div class="about-container">
+            <div class="about-text glass-card hidden-slide-left">
+                <p data-i18n="about_desc">Transformo ideas en herramientas de venta. Como diseñador y programador,
+                    entiendo la tecnología y la estética necesarias para destacar en el mercado actual. Me especializo
+                    en gestión de campañas publicitarias en Meta, donde ayudo a negocios a escalar sus ingresos
+                    conectándolos con su audiencia ideal. Mi objetivo es que tu inversión digital se convierta en
+                    facturación real.</p>
+                <div class="skills-grid">
+                    <span class="skill-pill" data-i18n="skill_1">Diseño Web Comercial</span>
+                    <span class="skill-pill" data-i18n="skill_2">Marketing en Redes</span>
+                    <span class="skill-pill" data-i18n="skill_3">Automatización de Ventas</span>
+                </div>
+            </div>
+            <div class="about-stats hidden-slide-right">
+                <div class="stat-box glass-card">
+                    <h3>3+</h3>
+                    <p data-i18n="stat_1">Años de Experiencia</p>
+                </div>
+                <div class="stat-box glass-card">
+                    <h3>20+</h3>
+                    <p data-i18n="stat_2">Proyectos Finalizados</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps Showcase Section -->
+    <section id="showcase" class="showcase">
+        <div class="section-title hidden-fade">
+            <h2 data-i18n="showcase_title">Aplicaciones <span>Reales</span></h2>
+            <p data-i18n="showcase_desc">Interfaces interactivas y funcionales diseñadas para dispositivos móviles.</p>
+            <p class="interact-hint" data-i18n="showcase_hint">Haz click en las pantallas para probar las apps.</p>
+        </div>
+
+        <div class="phones-container">
+            <!-- Phone 1 (Fitness) -->
+            <div class="phone-wrapper hidden-slide-up delay-1">
+                <div class="iphone-mockup">
+                    <div class="screen-content">
+                        <iframe src="app_fitness.html" frameborder="0" class="app-iframe"></iframe>
+                    </div>
+                    <div class="notch"></div>
+                </div>
+                <div class="phone-label">Fitness Track</div>
+            </div>
+
+            <!-- Phone 2 (Store) -->
+            <div class="phone-wrapper hidden-slide-up">
+                <div class="iphone-mockup">
+                    <div class="screen-content">
+                        <iframe src="app_store.html" frameborder="0" class="app-iframe"></iframe>
+                    </div>
+                    <div class="notch"></div>
+                </div>
+                <div class="phone-label">E-Commerce App</div>
+            </div>
+
+            <!-- Phone 3 (Dashboard) -->
+            <div class="phone-wrapper hidden-slide-up delay-2">
+                <div class="iphone-mockup">
+                    <div class="screen-content">
+                        <iframe src="app_dashboard.html" frameborder="0" class="app-iframe"></iframe>
+                    </div>
+                    <div class="notch"></div>
+                </div>
+                <div class="phone-label">Admin Dashboard</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-title">
+            <h2 data-i18n="contact_title">Hagamos <span>Contacto</span></h2>
+            <p data-i18n="contact_desc">¿Tienes una idea increíble en mente? Envíame un mensaje haciendo click en los
+                enlaces debajo y empecemos juntos a trabajar.</p>
+        </div>
+
+        <div class="contact-links glass-card">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=juancathalia1@gmail.com" target="_blank" class="contact-btn">
+                <span class="icon">✉️</span>
+                <span>Email</span>
+            </a>
+            <a href="https://wa.me/541126900632" target="_blank" class="contact-btn">
+                <span class="icon">💬</span>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="bottom">
+        <div class="footer-content">
+            <p data-i18n="footer_copy">&copy; 2026 JuanCaPixel. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

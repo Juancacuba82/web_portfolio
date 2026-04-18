@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard App Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007bff;
+            --bg: #f0f2f5;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); padding: 20px; color: #333; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+        
+        .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .nav h1 { font-size: 1.1rem; }
+        
+        .header-card { 
+            background: linear-gradient(135deg, #007bff, #00d4ff); 
+            color: white; border-radius: 16px; padding: 20px; margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,123,255,0.2);
+        }
+        .header-card p { opacity: 0.8; font-size: 0.8rem; }
+        .header-card .amount { font-size: 1.8rem; font-weight: 800; margin-top: 5px; }
+
+        .list-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .list-header h2 { font-size: 1rem; }
+        .btn-add { background: var(--primary); color: white; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 1.2rem; }
+
+        .task-list { flex: 1; overflow-y: auto; list-style: none; }
+        .task-item { 
+            background: white; border-radius: 12px; padding: 15px; margin-bottom: 10px; 
+            display: flex; justify-content: space-between; align-items: center;
+            transition: transform 0.2s; border: 1px solid transparent;
+        }
+        .task-item:active { transform: scale(0.98); border-color: var(--primary); }
+        .task-info h3 { font-size: 0.9rem; margin-bottom: 2px; }
+        .task-info p { font-size: 0.75rem; color: #888; }
+        .status { padding: 4px 8px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; }
+        .status.active { background: #e7f3ff; color: #007bff; }
+        .status.done { background: #e6f9ed; color: #28a745; }
+
+        .overlay { position: fixed; top:0; left:0; width: 100%; height:100%; background: rgba(0,0,0,0.5); display:none; align-items: flex-end; }
+        .panel { background: white; width: 100%; padding: 30px; border-radius: 20px 20px 0 0; transform: translateY(100%); transition: transform 0.3s ease; }
+        .panel.open { transform: translateY(0); }
+        .panel h2 { margin-bottom: 20px; font-size: 1.2rem; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 0.8rem; color: #888; margin-bottom: 5px; }
+        .input-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; }
+        .btn-save { background: var(--primary); color: white; border: none; width: 100%; padding: 15px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <h1>Dashboard</h1>
+        <div style="font-size: 1.2rem;">🔔</div>
+    </div>
+
+    <div class="header-card">
+        <p>Facturación Mensual</p>
+        <div class="amount" id="total">$12,450.00</div>
+    </div>
+
+    <div class="list-header">
+        <h2>Ciclos de Gestión</h2>
+        <button class="btn-add" onclick="openPanel()">+</button>
+    </div>
+
+    <ul class="task-list" id="task-list">
+        <li class="task-item">
+            <div class="task-info">
+                <h3>Verano 2026</h3>
+                <p>Inicia en 12 días</p>
+            </div>
+            <span class="status active">Activo</span>
+        </li>
+        <li class="task-item">
+            <div class="task-info">
+                <h3>Otoño 2025</h3>
+                <p>Finalizado</p>
+            </div>
+            <span class="status done">Completado</span>
+        </li>
+    </ul>
+
+    <div class="overlay" id="overlay" onclick="closePanel(event)">
+        <div class="panel" id="panel">
+            <h2>Nuevo Ciclo</h2>
+            <div class="input-group">
+                <label>Nombre del Ciclo</label>
+                <input type="text" id="cycle-name" placeholder="Ej: Invierno 2026">
+            </div>
+            <button class="btn-save" onclick="addCycle()">Guardar Ciclo</button>
+        </div>
+    </div>
+
+    <script>
+        function openPanel() {
+            document.getElementById('overlay').style.display = 'flex';
+            setTimeout(() => document.getElementById('panel').classList.add('open'), 10);
+        }
+        function closePanel(e) {
+            if (e.target.id === 'overlay') {
+                document.getElementById('panel').classList.remove('open');
+                setTimeout(() => document.getElementById('overlay').style.display = 'none', 300);
+            }
+        }
+        function addCycle() {
+            const name = document.getElementById('cycle-name').value;
+            if(!name) return;
+            
+            const li = document.createElement('li');
+            li.className = 'task-item';
+            li.innerHTML = `
+                <div class="task-info">
+                    <h3>${name}</h3>
+                    <p>Creado recién</p>
+                </div>
+                <span class="status active">Nuevo</span>
+            `;
+            document.getElementById('task-list').prepend(li);
+            document.getElementById('cycle-name').value = '';
+            
+            // Cerrar
+            document.getElementById('panel').classList.remove('open');
+            setTimeout(() => document.getElementById('overlay').style.display = 'none', 300);
+            
+            // Update total
+            const total = document.getElementById('total');
+            total.innerText = "$13,100.00";
+        }
+    </script>
+</body>
+</html>
