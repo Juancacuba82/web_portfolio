@@ -3,7 +3,7 @@ const translations = {
     es: {
         nav_home: "Inicio",
         nav_about: "Sobre Mí",
-        nav_projects: "Proyectos",
+
         nav_contact: "Contacto",
         hero_hello: "Hola, soy",
         hero_desc: "Construyendo interfaces elegantes, rápidas y dinámicas. Fusiono código y diseño para darle vida a la web.",
@@ -15,9 +15,7 @@ const translations = {
         skill_3: "Automatización de Ventas",
         stat_1: "Años de Experiencia",
         stat_2: "Proyectos Finalizados",
-        showcase_title: "Aplicaciones <span>Reales</span>",
-        showcase_desc: "Interfaces interactivas y funcionales diseñadas para dispositivos móviles.",
-        showcase_hint: "¡Prueba las apps! Haz click e interactúa con ellas.",
+
         contact_title: "Hagamos <span>Contacto</span>",
         contact_desc: "¿Tienes una idea increíble en mente? Envíame un mensaje haciendo click en los enlaces debajo y empecemos juntos a trabajar.",
         footer_copy: "&copy; 2026 JuanCaPixel. Todos los derechos reservados."
@@ -25,7 +23,7 @@ const translations = {
     en: {
         nav_home: "Home",
         nav_about: "About Me",
-        nav_projects: "Projects",
+
         nav_contact: "Contact",
         hero_hello: "Hi, I am",
         hero_desc: "Building elegant, fast, and dynamic interfaces. I merge code and design to bring the web to life.",
@@ -37,9 +35,7 @@ const translations = {
         skill_3: "Sales Automation",
         stat_1: "Years of Experience",
         stat_2: "Completed Projects",
-        showcase_title: "Real-World <span>Apps</span>",
-        showcase_desc: "Interactive and functional interfaces designed for mobile devices.",
-        showcase_hint: "Try the apps! Click and interact with them.",
+
         contact_title: "Let's <span>Connect</span>",
         contact_desc: "Have an amazing idea in mind? Send me a message by clicking the links below and let's start working together.",
         footer_copy: "&copy; 2026 JuanCaPixel. All rights reserved."
