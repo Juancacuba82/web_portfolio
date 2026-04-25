@@ -3,6 +3,7 @@ const translations = {
     es: {
         nav_home: "Inicio",
         nav_about: "Sobre Mí",
+        nav_youtube: "YouTube",
 
         nav_contact: "Contacto",
         hero_hello: "Hola, soy",
@@ -18,11 +19,15 @@ const translations = {
 
         contact_title: "Hagamos <span>Contacto</span>",
         contact_desc: "¿Tienes una idea increíble en mente? Envíame un mensaje haciendo click en los enlaces debajo y empecemos juntos a trabajar.",
+        youtube_title: "Mi Canal de <span>YouTube</span>",
+        youtube_desc: "Comparto mis conocimientos sobre desarrollo, diseño y estrategias de marketing. ¡Suscríbete para no perderte nada!",
+        youtube_cta: "Ver Canal",
         footer_copy: "&copy; 2026 JuanCaPixel. Todos los derechos reservados."
     },
     en: {
         nav_home: "Home",
         nav_about: "About Me",
+        nav_youtube: "YouTube",
 
         nav_contact: "Contact",
         hero_hello: "Hi, I am",
@@ -38,6 +43,9 @@ const translations = {
 
         contact_title: "Let's <span>Connect</span>",
         contact_desc: "Have an amazing idea in mind? Send me a message by clicking the links below and let's start working together.",
+        youtube_title: "My <span>YouTube</span> Channel",
+        youtube_desc: "I share my knowledge about development, design, and marketing strategies. Subscribe so you don't miss anything!",
+        youtube_cta: "Visit Channel",
         footer_copy: "&copy; 2026 JuanCaPixel. All rights reserved."
     }
 };
@@ -143,4 +151,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const initialElements = document.querySelectorAll('#home .hidden-fade, #home .hidden-slide');
         initialElements.forEach(el => el.classList.add('visible'));
     }, 100);
+
+    // 5. Lógica de carga de video de YouTube
+    const videoContainer = document.getElementById('video-container');
+    if (videoContainer) {
+        videoContainer.addEventListener('click', function() {
+            const isLocal = window.location.protocol === 'file:';
+            const videoId = 'a450rTUnTNI';
+            
+            if (isLocal) {
+                // Si estamos en local, advertir o abrir en nueva pestaña para evitar Error 153
+                window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+            } else {
+                // Si estamos en un servidor, cargar el iframe
+                this.classList.add('loading');
+                this.innerHTML = `
+                    <iframe 
+                        src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                `;
+            }
+        });
+    }
 });
